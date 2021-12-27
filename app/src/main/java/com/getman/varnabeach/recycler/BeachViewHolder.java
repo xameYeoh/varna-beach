@@ -1,5 +1,6 @@
 package com.getman.varnabeach.recycler;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.getman.varnabeach.BeachDetailActivity;
 import com.getman.varnabeach.R;
 import com.getman.varnabeach.room.Beach;
 
@@ -29,6 +31,7 @@ public class BeachViewHolder extends RecyclerView.ViewHolder {
     public static BeachViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.beach_card, parent, false);
+
         return new BeachViewHolder(view);
     }
 
@@ -36,5 +39,11 @@ public class BeachViewHolder extends RecyclerView.ViewHolder {
         image.setImageURI(Uri.parse(beach.imageURI));
         title.setText(beach.name);
         description.setText(beach.description);
+
+        image.getRootView().setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), BeachDetailActivity.class);
+            intent.putExtra(BeachDetailActivity.BEACH, beach);
+            image.getContext().startActivity(intent);
+        });
     }
 }

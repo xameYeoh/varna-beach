@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="asparuhovo">Аспарухово</string>
+    <string name="galata">Галата</string>
+    <string name="golden_sands">Золотые пески</string>
+    <string name="central">Центральный пляж</string>
+    <string name="central_description">Beach in Centrum</string>
+</resources>

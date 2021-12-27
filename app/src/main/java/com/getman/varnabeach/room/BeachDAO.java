@@ -9,8 +9,11 @@ import java.util.List;
 
 @Dao
 public interface BeachDAO {
-    @Query("SELECT * FROM beach")
-    LiveData<List<Beach>> getAll();
+    @Query("SELECT * FROM beach ORDER BY name ASC")
+    LiveData<List<Beach>> getAllOrderByName();
+
+    @Query("DELETE FROM beach")
+    void deleteAll();
 
     @Insert
     void insertAll(Beach... beaches);

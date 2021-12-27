@@ -4,10 +4,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Beach {
+public class Beach implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int id;
 

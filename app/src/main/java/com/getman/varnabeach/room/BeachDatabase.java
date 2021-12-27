@@ -50,19 +50,45 @@ public abstract class BeachDatabase extends RoomDatabase {
             super.onCreate(db);
 
             String packageName = context.getPackageName();
+            String centralImagePath = "android.resource://" + packageName + "/" + R.drawable.central;
             String asparuhovoImagePath = "android.resource://" + packageName + "/" + R.drawable.asparuhovo;
+            String galataImagePath = "android.resource://" + packageName + "/" + R.drawable.galata;
+            String goldenSandsImagePath = "android.resource://" + packageName + "/" + R.drawable.golden_sands;
 
-            BeachDAO dao = INSTANCE.beachDao();
+
             databaseWriteExecutor.execute(() -> {
+                BeachDAO dao = INSTANCE.beachDao();
+                dao.deleteAll();
 
                 dao.insertAll(
                         new Beach(
-                                "Asparuhovo",
-                                "Beach in Asparuhovo",
+                                context.getString(R.string.central),
+                                context.getString(R.string.central_description),
+                                "43.199786",
+                                "27.923486",
+                                centralImagePath
+                        ),
+                        new Beach(
+                                context.getString(R.string.asparuhovo),
+                                context.getString(R.string.asparuhovo_description),
                                 "43.177172",
                                 "27.913052",
                                 asparuhovoImagePath
-                                )
+                        ),
+                        new Beach(
+                                context.getString(R.string.galata),
+                                context.getString(R.string.galata_description),
+                                "43.156304",
+                                "27.943984",
+                                galataImagePath
+                        ),
+                        new Beach(
+                                context.getString(R.string.golden_sands),
+                                context.getString(R.string.golden_sands_description),
+                                "43.283441",
+                                "28.045274",
+                                goldenSandsImagePath
+                        )
                 );
             });
         }

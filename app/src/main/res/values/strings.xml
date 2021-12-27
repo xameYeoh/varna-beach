@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">VarnaBeach</string>
     <string name="beach_image">Beach image</string>
+    <string name="asparuhovo">Asparuhovo</string>
+    <string name="galata">Galata</string>
+    <string name="golden_sands">Golden Sands</string>
+    <string name="asparuhovo_description">Beach in Asparuhovo</string>
+    <string name="galata_description">Beach in Galata</string>
+    <string name="golden_sands_description">Beach in Golden Sands</string>
+    <string name="central">Central</string>
+    <string name="central_description">Beach in Centrum</string>
 </resources>
