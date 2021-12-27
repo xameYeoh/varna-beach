@@ -2,15 +2,21 @@ plugins {
     id 'com.android.application'
 }
 
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     compileSdk 31
 
     defaultConfig {
         applicationId "com.getman.varnabeach"
-        minSdk 24
+        minSdk 26
         targetSdk 31
         versionCode 1
         versionName "1.0"
+
+        buildConfigField("String", "STORMGLASS_KEY", apikeyProperties['STORMGLASS_KEY'])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,7 +35,9 @@ android {
 
 dependencies {
     def room_version = "2.4.0"
+    def lifecycle_version = "2.4.0"
 
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation 'com.android.volley:volley:1.2.1'

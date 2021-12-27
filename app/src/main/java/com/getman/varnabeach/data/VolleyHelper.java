@@ -1,4 +1,4 @@
-package com.getman.varnabeach;
+package com.getman.varnabeach.data;
 
 import android.content.Context;
 
