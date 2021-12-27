@@ -31,7 +31,7 @@ public class Repository {
 
     public Repository(Application application) {
         context = application;
-        BeachDatabase db = Room.databaseBuilder(context, BeachDatabase.class, "beach_database").build();
+        BeachDatabase db = BeachDatabase.getInstance(application);
 
         beachDAO = db.beachDao();
         allBeaches = beachDAO.getAll();

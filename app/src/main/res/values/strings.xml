@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VarnaBeach</string>
+    <string name="beach_image">Beach image</string>
 </resources>

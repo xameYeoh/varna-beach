@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Objects;
+
 @Entity
 public class Beach {
     @PrimaryKey(autoGenerate = true)
@@ -20,4 +22,31 @@ public class Beach {
 
     @ColumnInfo(name = "lng")
     public String lng;
+
+    @ColumnInfo(name = "image_uri")
+    public String imageURI;
+
+    public Beach(String name, String description, String lat, String lng, String imageURI) {
+        this.name = name;
+        this.description = description;
+        this.lat = lat;
+        this.lng = lng;
+        this.imageURI = imageURI;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Beach beach = (Beach) o;
+        return name.equals(beach.name) &&
+                Objects.equals(description, beach.description) &&
+                lat.equals(beach.lat) && lng.equals(beach.lng) &&
+                Objects.equals(imageURI, beach.imageURI);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, description, lat, lng, imageURI);
+    }
 }
