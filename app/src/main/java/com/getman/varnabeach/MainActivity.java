@@ -13,6 +13,8 @@ import com.getman.varnabeach.recycler.BeachAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
+    //TODO Decide where to request conditions for selected beach
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -15,6 +15,7 @@ import com.getman.varnabeach.room.Beach;
 import com.getman.varnabeach.room.BeachDAO;
 import com.getman.varnabeach.room.BeachDatabase;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,19 +30,31 @@ public class Repository {
     private static final String PARAMS = "windSpeed,waveHeight,airTemperature,waterTemperature";
     private static final String KEY = BuildConfig.STORMGLASS_KEY;
 
-    private final Context context;
+    private final Application context;
     private final LiveData<List<Beach>> allBeaches;
     private final Map<String, String> beachConditions;
-    private final BeachDAO beachDAO;
 
-    public Repository(Application application) {
+    private static volatile Repository INSTANCE;
+
+    private Repository(Application application) {
         context = application;
         BeachDatabase db = BeachDatabase.getInstance(application);
 
-        beachDAO = db.beachDao();
+        BeachDAO beachDAO = db.beachDao();
         allBeaches = beachDAO.getAllOrderByName();
 
         beachConditions = new HashMap<>();
+    }
+
+    public static Repository getInstance(Application application) {
+        if (INSTANCE == null) {
+            synchronized (Repository.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = new Repository(application);
+                }
+            }
+        }
+        return INSTANCE;
     }
 
     public LiveData<List<Beach>> getAllBeaches() {
@@ -50,7 +63,7 @@ public class Repository {
 
     public Map<String, String> getBeachConditions() { return beachConditions; }
 
-    public void requestAndDisplayConditions(String lat, String lng) {
+    public void requestNewConditions(String lat, String lng) {
         VolleyHelper helper = VolleyHelper.getInstance(context);
         String lastHour = Instant.now().truncatedTo(ChronoUnit.HOURS).toString();
 
@@ -80,6 +93,13 @@ public class Repository {
     private void updateMap(NetworkResponse response) {
         try {
             JSONObject jsonResponse = new JSONObject(new String(response.data));
+            JSONArray names = jsonResponse.names();
+            beachConditions.clear();
+            for (int i = 0; i < names.length(); i++) {
+                String key = names.get(i).toString();
+                String value = jsonResponse.get(key).toString();
+                beachConditions.put(key, value);
+            }
         }
         catch (JSONException je) {
             Log.d("Parse Error", je.toString());
