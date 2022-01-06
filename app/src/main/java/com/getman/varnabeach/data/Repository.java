@@ -91,19 +91,52 @@ public class Repository {
     }
 
     private void updateMap(NetworkResponse response) {
+        beachConditions.clear();
+
         try {
-            JSONObject jsonResponse = new JSONObject(new String(response.data));
-            JSONArray names = jsonResponse.names();
-            beachConditions.clear();
-            for (int i = 0; i < names.length(); i++) {
-                String key = names.get(i).toString();
-                String value = jsonResponse.get(key).toString();
-                beachConditions.put(key, value);
-            }
+            putAverageValuesToMap(response);
         }
         catch (JSONException je) {
-            Log.d("Parse Error", je.toString());
+            Log.d("JSON", je.toString());
         }
+    }
+
+    private void putAverageValuesToMap(NetworkResponse response) throws JSONException{
+        JSONObject jsonResponse = new JSONObject(new String(response.data));
+        JSONObject currentHourConditions = getCurrentHourJsonObject(jsonResponse);
+        JSONArray names = currentHourConditions.names();
+
+        for (int i = 0; i < names.length(); i++) {
+            String key = names.getString(i);
+            Object value = currentHourConditions.get(key);
+
+            if (value instanceof JSONObject) {
+                double averageValue = average((JSONObject) value);
+                beachConditions.put(key, String.valueOf(averageValue));
+            }
+        }
+    }
+
+    private double average(JSONObject condition) throws JSONException {
+        double sum = 0;
+
+        JSONArray names = condition.names();
+        for (int i = 0; i < names.length(); i++) {
+            sum += condition.getDouble(names.getString(i));
+        }
+
+        return sum / names.length();
+    }
+
+    private JSONObject getCurrentHourJsonObject(JSONObject response) {
+        JSONObject result = null;
+        try {
+            JSONArray hours = response.getJSONArray("hours");
+            result = hours.getJSONObject(0);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     private void displayError(VolleyError error) {
