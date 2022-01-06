@@ -1,4 +1,4 @@
-package com.getman.varnabeach;
+package com.getman.varnabeach.data;
 
 import com.android.volley.Cache;
 import com.android.volley.NetworkResponse;
