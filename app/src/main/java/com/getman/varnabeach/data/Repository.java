@@ -11,6 +11,7 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.getman.varnabeach.BuildConfig;
+import com.getman.varnabeach.lifecycle.OnChangeConditionListener;
 import com.getman.varnabeach.room.Beach;
 import com.getman.varnabeach.room.BeachDAO;
 import com.getman.varnabeach.room.BeachDatabase;
@@ -44,6 +45,14 @@ public class Repository {
         allBeaches = beachDAO.getAllOrderByName();
 
         beachConditions = new HashMap<>();
+        putEmptyConditions();
+    }
+
+    private void putEmptyConditions() {
+        String[] params = PARAMS.split(",");
+        for (String param : params) {
+            beachConditions.put(param, "");
+        }
     }
 
     public static Repository getInstance(Application application) {
@@ -63,7 +72,7 @@ public class Repository {
 
     public Map<String, String> getBeachConditions() { return beachConditions; }
 
-    public void requestNewConditions(String lat, String lng) {
+    public void requestNewConditions(String lat, String lng, OnChangeConditionListener listener) {
         VolleyHelper helper = VolleyHelper.getInstance(context);
         String lastHour = Instant.now().truncatedTo(ChronoUnit.HOURS).toString();
 
@@ -76,7 +85,15 @@ public class Repository {
         CacheRequest request = new CacheRequest(
                 Request.Method.GET,
                 url,
-                this::updateMap,
+                response -> {
+                    try {
+                        putAverageValuesToMap(response);
+                        listener.onChange();
+                    }
+                    catch (JSONException je) {
+                        Log.d("JSON", je.toString());
+                    }
+                },
                 this::displayError) {
             @Override
             public Map<String, String> getHeaders() {
@@ -88,17 +105,6 @@ public class Repository {
         };
 
         helper.addToRequestQueue(request);
-    }
-
-    private void updateMap(NetworkResponse response) {
-        beachConditions.clear();
-
-        try {
-            putAverageValuesToMap(response);
-        }
-        catch (JSONException je) {
-            Log.d("JSON", je.toString());
-        }
     }
 
     private void putAverageValuesToMap(NetworkResponse response) throws JSONException{
@@ -125,7 +131,7 @@ public class Repository {
             sum += condition.getDouble(names.getString(i));
         }
 
-        return sum / names.length();
+        return Math.floor(sum / names.length() * 100) / 100;
     }
 
     private JSONObject getCurrentHourJsonObject(JSONObject response) {
