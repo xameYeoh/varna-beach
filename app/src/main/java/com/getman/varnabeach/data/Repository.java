@@ -45,14 +45,6 @@ public class Repository {
         allBeaches = beachDAO.getAllOrderByName();
 
         beachConditions = new HashMap<>();
-        putEmptyConditions();
-    }
-
-    private void putEmptyConditions() {
-        String[] params = PARAMS.split(",");
-        for (String param : params) {
-            beachConditions.put(param, "");
-        }
     }
 
     public static Repository getInstance(Application application) {
