@@ -30,7 +30,7 @@ public class BeachConditionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityBeachDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        
+
         getBeachFromIntent();
 
         bindViewsToBeachInfo();
@@ -41,9 +41,9 @@ public class BeachConditionsActivity extends AppCompatActivity {
     }
 
     private void bindViewsToBeachInfo() {
-        binding.beachDescription.cardImage.setImageURI(Uri.parse(beach.imageURI));
-        binding.beachDescription.cardDescription.setText(beach.description);
-        binding.beachDescription.cardTitle.setText(beach.name);
+        binding.beachCard.beachInformation.cardImage.setImageURI(Uri.parse(beach.imageURI));
+        binding.beachCard.beachInformation.cardDescription.setText(beach.description);
+        binding.beachCard.beachInformation.cardTitle.setText(beach.name);
     }
 
     private void getBeachFromIntent() {
@@ -86,7 +86,7 @@ public class BeachConditionsActivity extends AppCompatActivity {
 
         for (String key : conditions.keySet()) {
             String value = conditions.get(key);
-            value = value + " " + units.getUnitFor(value);
+            value = value + " " + units.getUnitFor(key);
 
             key = UnitFormat.convertCamelCaseToNormal(key);
 

@@ -4,7 +4,6 @@
     <string name="galata">Галата</string>
     <string name="golden_sands">Златни пясъци</string>
     <string name="central">Централен плаж</string>
-    <string name="central_description">Beach in Centrum</string>
     <string name="speed_unit">м/с</string>
     <string name="distance_unit">м</string>
     <string name="temperature_unit">°C</string>
@@ -13,4 +12,5 @@
     <string name="galata_description">Плажът в Галата</string>
     <string name="golden_sands_description">Плажът в Златни Пясъци</string>
     <string name="loading">Очаквайте…</string>
+    <string name="central_description">Плажът в център</string>
 </resources>
