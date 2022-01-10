@@ -9,7 +9,8 @@
     <string name="golden_sands_description">Beach in Golden Sands</string>
     <string name="central">Central</string>
     <string name="central_description">Beach in Centre</string>
-    <string name="speed_unit">m</string>
+    <string name="speed_unit">m/s</string>
     <string name="distance_unit">m</string>
     <string name="temperature_unit">°C</string>
+    <string name="loading">Loading…</string>
 </resources>

@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.24139492753623187" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_list_item_2.xml" value="0.24139492753623187" />
         <entry key="app/src/main/res/layout/activity_beach_detail.xml" value="0.21693840579710144" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21693840579710144" />
         <entry key="app/src/main/res/layout/beach_card.xml" value="0.21693840579710144" />
         <entry key="app/src/main/res/layout/beach_info.xml" value="0.19519927536231885" />
+        <entry key="app/src/main/res/layout/card_two_texts.xml" value="0.24139492753623187" />
       </map>
     </option>
   </component>

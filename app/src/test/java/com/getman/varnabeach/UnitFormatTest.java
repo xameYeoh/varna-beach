@@ -1,6 +1,5 @@
 package com.getman.varnabeach;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

@@ -12,4 +12,5 @@
     <string name="asparuhovo_description">Плажът в Аспарухово</string>
     <string name="galata_description">Плажът в Галата</string>
     <string name="golden_sands_description">Плажът в Златни Пясъци</string>
+    <string name="loading">Очаквайте…</string>
 </resources>

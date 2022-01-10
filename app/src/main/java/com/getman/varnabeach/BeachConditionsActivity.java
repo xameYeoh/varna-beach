@@ -19,14 +19,9 @@ import java.util.Map;
 
 public class BeachConditionsActivity extends AppCompatActivity {
     public static final String BEACH = "beach";
-    private static UnitFormat units;
     private ActivityBeachDetailBinding binding;
     private Beach beach;
     private BeachConditionsViewModel model;
-
-    public BeachConditionsActivity() {
-        units = new UnitFormat(getResources());
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,19 +60,22 @@ public class BeachConditionsActivity extends AppCompatActivity {
     }
 
     private void displayLoadingInfo() {
-        binding.testView.setText("Loading...");
+        binding.testView.setText(getResources().getText(R.string.loading));
     }
 
     private void displayConditions(Map<String, String> conditions) {
-            StringBuilder builder = new StringBuilder();
-            for (String key : conditions.keySet()) {
-                builder.append(key)
-                        .append(": ")
-                        .append(conditions.get(key))
-                        .append("\n");
-            }
-            TextView test = findViewById(R.id.test_view);
-            test.setText(builder.toString());
+        UnitFormat units = new UnitFormat(getResources());
+
+        StringBuilder builder = new StringBuilder();
+        for (String key : conditions.keySet()) {
+            builder.append(key)
+                    .append(": ")
+                    .append(conditions.get(key))
+                    .append(units.getUnitFor(key))
+                    .append("\n");
+        }
+        TextView test = findViewById(R.id.test_view);
+        test.setText(builder.toString());
     }
 
     public static class UnitFormat {

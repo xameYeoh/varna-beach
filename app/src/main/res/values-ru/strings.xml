@@ -12,4 +12,5 @@
     <string name="asparuhovo_description">Пляж в Аспарухово</string>
     <string name="galata_description">Пляж в Галате</string>
     <string name="golden_sands_description">Пляж в Золотых Песках</string>
+    <string name="loading">Загрузка…</string>
 </resources>
