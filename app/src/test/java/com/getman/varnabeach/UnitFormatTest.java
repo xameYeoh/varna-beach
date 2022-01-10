@@ -60,10 +60,19 @@ public class UnitFormatTest {
         assertEquals("м", meters);
     }
 
-
     private void setMocksRussian() {
         Mockito.when(resources.getString(R.string.speed_unit)).thenReturn("м/с");
         Mockito.when(resources.getString(R.string.distance_unit)).thenReturn("м");
         Mockito.when(resources.getString(R.string.temperature_unit)).thenReturn("°C");
+    }
+
+    @Test
+    public void buildsNormalStringFromCamelCaseCorrectly() {
+        // given
+        String camel = "camelCaseExample";
+        // when
+        String normal = BeachConditionsActivity.UnitFormat.convertCamelCaseToNormal(camel);
+        // then
+        assertEquals("Camel Case Example ", normal);
     }
 }

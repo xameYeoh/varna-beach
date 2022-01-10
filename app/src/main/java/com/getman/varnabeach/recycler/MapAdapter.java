@@ -9,13 +9,13 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class ConditionsAdapter extends RecyclerView.Adapter<ConditionsViewHolder> {
-    private String[] conditionKeys;
-    private Map<String, String> conditions;
+public class MapAdapter extends RecyclerView.Adapter<ConditionsViewHolder> {
+    private final String[] conditionKeys;
+    private final Map<String, String> conditions;
 
-    public ConditionsAdapter(Map<String, String> conditions) {
+    public MapAdapter(Map<String, String> conditions) {
         this.conditions = conditions;
-        this.conditions.keySet().toArray(conditionKeys);
+        conditionKeys = this.conditions.keySet().toArray(new String[0]);
     }
 
     @NonNull
@@ -26,12 +26,13 @@ public class ConditionsAdapter extends RecyclerView.Adapter<ConditionsViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ConditionsViewHolder holder, int position) {
-        // todo bind both key and value
-        holder.bind(conditions.get(conditionKeys[position]));
+        String key = conditionKeys[position];
+        String value = conditions.get(key);
+        holder.bind(key, value);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return conditionKeys.length;
     }
 }
