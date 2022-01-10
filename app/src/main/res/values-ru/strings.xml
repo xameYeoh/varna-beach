@@ -5,4 +5,11 @@
     <string name="golden_sands">Золотые пески</string>
     <string name="central">Центральный пляж</string>
     <string name="central_description">Beach in Centrum</string>
+    <string name="speed_unit">м/с</string>
+    <string name="distance_unit">м</string>
+    <string name="temperature_unit">°C</string>
+    <string name="beach_image">Изображение пляжа</string>
+    <string name="asparuhovo_description">Пляж в Аспарухово</string>
+    <string name="galata_description">Пляж в Галате</string>
+    <string name="golden_sands_description">Пляж в Золотых Песках</string>
 </resources>

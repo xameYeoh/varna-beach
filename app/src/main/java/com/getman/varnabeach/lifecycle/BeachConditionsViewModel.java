@@ -8,10 +8,10 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.getman.varnabeach.data.Repository;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class BeachConditionsViewModel extends AndroidViewModel {
-
     private MutableLiveData<Map<String, String>> conditions;
     private final Repository repository;
 

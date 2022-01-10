@@ -5,4 +5,7 @@
     <string name="golden_sands">Golden Sands</string>
     <string name="central">Central</string>
     <string name="central_description">Beach in Centrum</string>
+    <string name="speed_unit">m</string>
+    <string name="distance_unit">m</string>
+    <string name="temperature_unit">°C</string>
 </resources>

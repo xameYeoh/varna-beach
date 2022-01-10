@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -12,13 +13,20 @@ import com.getman.varnabeach.databinding.ActivityBeachDetailBinding;
 import com.getman.varnabeach.lifecycle.BeachConditionsViewModel;
 import com.getman.varnabeach.room.Beach;
 
+import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class BeachConditionsActivity extends AppCompatActivity {
     public static final String BEACH = "beach";
+    private static UnitFormat units;
     private ActivityBeachDetailBinding binding;
     private Beach beach;
     private BeachConditionsViewModel model;
+
+    public BeachConditionsActivity() {
+        units = new UnitFormat(getResources());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,5 +78,23 @@ public class BeachConditionsActivity extends AppCompatActivity {
             }
             TextView test = findViewById(R.id.test_view);
             test.setText(builder.toString());
+    }
+
+    public static class UnitFormat {
+        private static final Map<String, String> UNITS = new HashMap<>();
+
+        public UnitFormat(Resources r) {
+            UNITS.put("SPEED", r.getString(R.string.speed_unit));
+            UNITS.put("HEIGHT", r.getString(R.string.distance_unit));
+            UNITS.put("TEMPERATURE", r.getString(R.string.temperature_unit));
+        }
+
+        public String getUnitFor(String param) {
+            param = param.toUpperCase(Locale.ROOT);
+            for (String parameterType : UNITS.keySet()) {
+                if (param.contains(parameterType)) return UNITS.get(parameterType);
+            }
+            return null;
+        }
     }
 }
