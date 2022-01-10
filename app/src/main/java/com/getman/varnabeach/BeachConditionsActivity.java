@@ -24,16 +24,13 @@ public class BeachConditionsActivity extends AppCompatActivity {
     private ActivityBeachDetailBinding binding;
     private Beach beach;
     private BeachConditionsViewModel model;
-    private MapAdapter recyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityBeachDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        binding.beachDescription.textLayout.setGravity(0);
-
+        
         getBeachFromIntent();
 
         bindViewsToBeachInfo();
@@ -55,7 +52,7 @@ public class BeachConditionsActivity extends AppCompatActivity {
     }
 
     private void setAdapterForRecycler(Map<String, String> conditions) {
-        recyclerAdapter = new MapAdapter(conditions);
+        MapAdapter recyclerAdapter = new MapAdapter(conditions);
         binding.recyclerViewConditions.setAdapter(recyclerAdapter);
         binding.recyclerViewConditions.setLayoutManager(new LinearLayoutManager(this));
     }
