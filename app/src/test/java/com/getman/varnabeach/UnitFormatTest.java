@@ -1,5 +1,6 @@
 package com.getman.varnabeach;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -20,14 +21,13 @@ public class UnitFormatTest {
     @Before
     public void setMocks() {
         resources = Mockito.mock(Resources.class);
-        Mockito.when(resources.getString(R.string.speed_unit)).thenReturn("m/s");
-        Mockito.when(resources.getString(R.string.distance_unit)).thenReturn("m");
-        Mockito.when(resources.getString(R.string.temperature_unit)).thenReturn("°C");
     }
 
     @Test
-    public void returnsCorrectUnit() {
+    public void returnsCorrectUnitEnglish() {
         // given
+        setMocksValuesEnglish();
+
         BeachConditionsActivity.UnitFormat format = new BeachConditionsActivity.UnitFormat(resources);
         String temperature = "airTemperature";
         String height = "waveHeight";
@@ -37,5 +37,34 @@ public class UnitFormatTest {
         // then
         assertEquals("°C", celsius);
         assertEquals("m", meters);
+    }
+
+    private void setMocksValuesEnglish() {
+        Mockito.when(resources.getString(R.string.speed_unit)).thenReturn("m/s");
+        Mockito.when(resources.getString(R.string.distance_unit)).thenReturn("m");
+        Mockito.when(resources.getString(R.string.temperature_unit)).thenReturn("°C");
+    }
+
+    @Test
+    public void returnsCorrectUnitRussian() {
+        // given
+        setMocksRussian();
+
+        BeachConditionsActivity.UnitFormat format = new BeachConditionsActivity.UnitFormat(resources);
+        String temperature = "airTemperature";
+        String height = "waveHeight";
+        // when
+        String celsius = format.getUnitFor(temperature);
+        String meters = format.getUnitFor(height);
+        // then
+        assertEquals("°C", celsius);
+        assertEquals("м", meters);
+    }
+
+
+    private void setMocksRussian() {
+        Mockito.when(resources.getString(R.string.speed_unit)).thenReturn("м/с");
+        Mockito.when(resources.getString(R.string.distance_unit)).thenReturn("м");
+        Mockito.when(resources.getString(R.string.temperature_unit)).thenReturn("°C");
     }
 }
