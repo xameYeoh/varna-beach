@@ -13,4 +13,12 @@
     <string name="golden_sands_description">Плажът в Златни Пясъци</string>
     <string name="loading">Очаквайте…</string>
     <string name="central_description">Плажът в център</string>
+    <string name="burgas">Бургас</string>
+    <string name="burgas_description">Плажът в Бургас</string>
+    <string name="sozopol">Созопол</string>
+    <string name="sozopol_description">Плажът в Созопол</string>
+    <string name="primorsko">Приморско</string>
+    <string name="primorsko_description">Плажът в Приморско</string>
+    <string name="sunny_beach">Слънчев бряг</string>
+    <string name="sunny_beach_description">Плажът в Слънчев бряг</string>
 </resources>

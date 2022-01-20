@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 
 import androidx.annotation.NonNull;
+import androidx.room.AutoMigration;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -14,7 +15,10 @@ import com.getman.varnabeach.R;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Beach.class}, version = 1)
+@Database(
+        version = 1,
+        entities = {Beach.class}
+)
 public abstract class BeachDatabase extends RoomDatabase {
     private static volatile BeachDatabase INSTANCE;
 
@@ -46,15 +50,18 @@ public abstract class BeachDatabase extends RoomDatabase {
         }
 
         @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
+        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+            super.onOpen(db);
 
             String packageName = context.getPackageName();
             String centralImagePath = "android.resource://" + packageName + "/" + R.drawable.central;
             String asparuhovoImagePath = "android.resource://" + packageName + "/" + R.drawable.asparuhovo;
             String galataImagePath = "android.resource://" + packageName + "/" + R.drawable.galata;
             String goldenSandsImagePath = "android.resource://" + packageName + "/" + R.drawable.golden_sands;
-
+            String nesebrImagePath = "android.resource://" + packageName + "/" + R.drawable.burgas;
+            String sozopolImagePath = "android.resource://" + packageName + "/" + R.drawable.sozopol;
+            String primorskoImagePath = "android.resource://" + packageName + "/" + R.drawable.primorsko;
+            String sunnyBeachImagePath = "android.resource://" + packageName + "/" + R.drawable.sunny_beach;
 
             databaseWriteExecutor.execute(() -> {
                 BeachDAO dao = INSTANCE.beachDao();
@@ -88,6 +95,34 @@ public abstract class BeachDatabase extends RoomDatabase {
                                 "43.283441",
                                 "28.045274",
                                 goldenSandsImagePath
+                        ),
+                        new Beach(
+                                context.getString(R.string.sunny_beach),
+                                context.getString(R.string.sunny_beach_description),
+                                "42.688149",
+                                "27.716088",
+                                sunnyBeachImagePath
+                        ),
+                        new Beach(
+                                context.getString(R.string.burgas),
+                                context.getString(R.string.burgas_description),
+                                "42.499452",
+                                "27.484705",
+                                nesebrImagePath
+                        ),
+                        new Beach(
+                                context.getString(R.string.sozopol),
+                                context.getString(R.string.sozopol_description),
+                                "42.420744",
+                                "27.696514",
+                                sozopolImagePath
+                        ),
+                        new Beach(
+                                context.getString(R.string.primorsko),
+                                context.getString(R.string.primorsko_description),
+                                "42.262990",
+                                "27.753534",
+                                primorskoImagePath
                         )
                 );
             });
