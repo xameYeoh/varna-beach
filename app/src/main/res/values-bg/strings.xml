@@ -4,5 +4,21 @@
     <string name="galata">Галата</string>
     <string name="golden_sands">Златни пясъци</string>
     <string name="central">Централен плаж</string>
-    <string name="central_description">Beach in Centrum</string>
+    <string name="speed_unit">м/с</string>
+    <string name="distance_unit">м</string>
+    <string name="temperature_unit">°C</string>
+    <string name="beach_image">Изображението на плаж</string>
+    <string name="asparuhovo_description">Плажът в Аспарухово</string>
+    <string name="galata_description">Плажът в Галата</string>
+    <string name="golden_sands_description">Плажът в Златни Пясъци</string>
+    <string name="loading">Очаквайте…</string>
+    <string name="central_description">Плажът в център</string>
+    <string name="burgas">Бургас</string>
+    <string name="burgas_description">Плажът в Бургас</string>
+    <string name="sozopol">Созопол</string>
+    <string name="sozopol_description">Плажът в Созопол</string>
+    <string name="primorsko">Приморско</string>
+    <string name="primorsko_description">Плажът в Приморско</string>
+    <string name="sunny_beach">Слънчев бряг</string>
+    <string name="sunny_beach_description">Плажът в Слънчев бряг</string>
 </resources>

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VarnaBeach">
         <activity
-            android:name=".BeachDetailActivity"
+            android:name=".BeachConditionsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

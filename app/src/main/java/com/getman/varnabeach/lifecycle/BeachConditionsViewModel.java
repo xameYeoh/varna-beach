@@ -8,25 +8,33 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.getman.varnabeach.data.Repository;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class BeachConditionsViewModel extends AndroidViewModel {
-
-    private final MutableLiveData<Map<String, String>> conditions;
+    private MutableLiveData<Map<String, String>> conditions;
     private final Repository repository;
 
     public BeachConditionsViewModel(Application application) {
         super(application);
 
         repository = Repository.getInstance(application);
-        conditions = new MutableLiveData<>(repository.getBeachConditions());
     }
 
-    public LiveData<Map<String, String>> getConditions() {
+    public LiveData<Map<String, String>> getConditions(String lat, String lng, OnLoadingListener listener) {
+        if (conditions == null) {
+            conditions = new MutableLiveData<>();
+            listener.onLoading();
+            requestConditions(lat, lng);
+        }
         return conditions;
     }
 
-    public void requestConditions(String lat, String lng) {
-        repository.requestNewConditions(lat, lng);
+    private void requestConditions(String lat, String lng) {
+        repository.requestNewConditions(lat, lng, this::updateData);
+    }
+
+    private void updateData() {
+        conditions.setValue(repository.getBeachConditions());
     }
 }

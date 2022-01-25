@@ -1,14 +1,15 @@
 package com.getman.varnabeach;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
-import com.getman.varnabeach.lifecycle.BeachViewModel;
+import com.getman.varnabeach.databinding.ActivityMainBinding;
+import com.getman.varnabeach.lifecycle.BeachListViewModel;
 import com.getman.varnabeach.recycler.BeachAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,14 +17,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         BeachAdapter adapter = new BeachAdapter();
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerView.setAdapter(adapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        BeachViewModel vm = new ViewModelProvider(this).get(BeachViewModel.class);
+        BeachListViewModel vm = new ViewModelProvider(this).get(BeachListViewModel.class);
         vm.getAllBeaches().observe(this, adapter::submitList);
     }
 }

@@ -1,7 +1,9 @@
 package com.getman.varnabeach.recycler;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +12,13 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.getman.varnabeach.BeachDetailActivity;
+import com.getman.varnabeach.BeachConditionsActivity;
 import com.getman.varnabeach.R;
+import com.getman.varnabeach.databinding.BeachCardBinding;
 import com.getman.varnabeach.room.Beach;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class BeachViewHolder extends RecyclerView.ViewHolder {
 
@@ -23,9 +29,11 @@ public class BeachViewHolder extends RecyclerView.ViewHolder {
     private BeachViewHolder(View view) {
         super(view);
 
-        image = view.findViewById(R.id.card_image);
-        title = view.findViewById(R.id.card_title);
-        description = view.findViewById(R.id.card_description);
+        BeachCardBinding binding = BeachCardBinding.bind(view);
+
+        image = binding.beachInformation.cardImage;
+        title = binding.beachInformation.cardTitle;
+        description = binding.beachInformation.cardDescription;
     }
 
     public static BeachViewHolder create(ViewGroup parent) {
@@ -36,14 +44,28 @@ public class BeachViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Beach beach) {
-        image.setImageURI(Uri.parse(beach.imageURI));
+        image.setImageDrawable(getBeachImageDrawable(beach));
+        if (image.getDrawable() == null) Log.e("Image", "Drawable null");
+
         title.setText(beach.name);
         description.setText(beach.description);
 
         image.getRootView().setOnClickListener(v -> {
-            Intent intent = new Intent(v.getContext(), BeachDetailActivity.class);
-            intent.putExtra(BeachDetailActivity.BEACH, beach);
+            Intent intent = new Intent(v.getContext(), BeachConditionsActivity.class);
+            intent.putExtra(BeachConditionsActivity.BEACH, beach);
             image.getContext().startActivity(intent);
         });
     }
+
+    private Drawable getBeachImageDrawable(Beach beach) {
+        try {
+            InputStream is = image.getContext().getContentResolver()
+                    .openInputStream(Uri.parse(beach.imageURI));
+            return Drawable.createFromStream(is, beach.imageURI);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
+

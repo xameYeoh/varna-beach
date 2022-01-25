@@ -10,10 +10,10 @@ import com.getman.varnabeach.room.Beach;
 
 import java.util.List;
 
-public class BeachViewModel extends AndroidViewModel {
+public class BeachListViewModel extends AndroidViewModel {
     private final LiveData<List<Beach>> allBeaches;
 
-    public BeachViewModel(Application application) {
+    public BeachListViewModel(Application application) {
         super(application);
 
         Repository repository = Repository.getInstance(application);
