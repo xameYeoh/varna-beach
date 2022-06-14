@@ -14,7 +14,7 @@ class BeachListViewModel @Inject constructor(
 ) : ViewModel() {
     val allBeaches: LiveData<List<Beach>> = repository.allBeaches
     private lateinit var chosenBeachMutable: MutableLiveData<Beach>
-    val chosenBeach: LiveData<Beach> = chosenBeachMutable
+    val chosenBeach: LiveData<Beach> get() = chosenBeachMutable
 
     fun chooseBeach(selectedBeach: Beach) {
         chosenBeachMutable.value = selectedBeach
