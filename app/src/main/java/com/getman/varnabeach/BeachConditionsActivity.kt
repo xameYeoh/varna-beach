@@ -4,8 +4,8 @@ import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.getman.varnabeach.databinding.ActivityBeachDetailBinding
 import com.getman.varnabeach.lifecycle.BeachConditionsViewModel
@@ -13,15 +13,12 @@ import com.getman.varnabeach.lifecycle.BeachListViewModel
 import com.getman.varnabeach.recycler.MapAdapter
 import com.getman.varnabeach.room.Beach
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class BeachConditionsActivity : AppCompatActivity() {
     private var binding: ActivityBeachDetailBinding? = null
-    @Inject
-    lateinit var beachListViewModel: BeachListViewModel
-    @Inject
-    lateinit var model: BeachConditionsViewModel
+    private val beachListViewModel: BeachListViewModel by viewModels()
+    private val beachConditionsViewModel: BeachConditionsViewModel by viewModels()
     private var beach: Beach? = beachListViewModel.chosenBeach.value
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +45,7 @@ class BeachConditionsActivity : AppCompatActivity() {
 
     private fun setObserverForViewModel() {
         beach.let {
-            model.getConditions(beach?.lat, beach?.lng) { displayLoadingInfo() }
+            beachConditionsViewModel.getConditions(beach?.lat, beach?.lng) { displayLoadingInfo() }
                 .observe(this) { conditions: Map<String, String> ->
                     configureAndDisplayMapAndDisableLoadingInformation(
                         conditions
