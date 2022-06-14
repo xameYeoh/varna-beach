@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'dagger.hilt.android.plugin'
-    id 'org.jetbrains.kotlin.kapt'
 }
 
 def apikeyPropertiesFile = rootProject.file("apikey.properties")
