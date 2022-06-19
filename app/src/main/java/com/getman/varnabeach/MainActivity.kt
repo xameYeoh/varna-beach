@@ -1,9 +1,11 @@
 package com.getman.varnabeach
 
+import android.content.Intent
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.navigation.fragment.NavHostFragment
 import com.getman.varnabeach.recycler.BeachAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.getman.varnabeach.lifecycle.BeachListViewModel
@@ -13,18 +15,11 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private val beachListViewModel: BeachListViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(
             layoutInflater
         )
         setContentView(binding.root)
-        val adapter = BeachAdapter()
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-
-        beachListViewModel.allBeaches.observe(this) { list: List<Beach?> -> adapter.submitList(list) }
     }
 }
