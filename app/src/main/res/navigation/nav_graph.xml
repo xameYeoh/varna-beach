@@ -16,6 +16,10 @@
         android:label="BeachListFragment" >
         <action
             android:id="@+id/action_beachListFragment_to_beachConditionsFragment"
-            app:destination="@id/beachConditionsFragment" />
+            app:destination="@id/beachConditionsFragment"
+            app:enterAnim="@anim/to_left_enter"
+            app:exitAnim="@anim/to_left_exit"
+            app:popEnterAnim="@anim/to_right_enter"
+            app:popExitAnim="@anim/to_right_exit" />
     </fragment>
 </navigation>
