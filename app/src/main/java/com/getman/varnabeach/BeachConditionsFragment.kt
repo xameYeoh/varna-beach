@@ -3,11 +3,15 @@ package com.getman.varnabeach
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.getman.varnabeach.databinding.ActivityBeachDetailBinding
+import com.getman.varnabeach.databinding.FragmentBeachDetailBinding
 import com.getman.varnabeach.lifecycle.BeachConditionsViewModel
 import com.getman.varnabeach.lifecycle.BeachListViewModel
 import com.getman.varnabeach.recycler.MapAdapter
@@ -15,23 +19,26 @@ import com.getman.varnabeach.room.Beach
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class BeachConditionsActivity : AppCompatActivity() {
-    private var binding: ActivityBeachDetailBinding? = null
-    private val beachListViewModel: BeachListViewModel by viewModels()
-    private val beachConditionsViewModel: BeachConditionsViewModel by viewModels()
-    private var beach: Beach? = beachListViewModel.chosenBeach.value
+class BeachConditionsFragment : Fragment() {
+    private var binding: FragmentBeachDetailBinding? = null
+    private val beachListViewModel: BeachListViewModel by activityViewModels()
+    private val beachConditionsViewModel: BeachConditionsViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityBeachDetailBinding.inflate(
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentBeachDetailBinding.inflate(
             layoutInflater
         )
-        setContentView(binding?.root)
         bindViewsToBeachInfo()
         setObserverForViewModel()
+        return binding?.root
     }
 
     private fun bindViewsToBeachInfo() {
+        val beach = beachListViewModel.chosenBeach.value
         binding?.beachCard?.beachInformation?.cardImage?.setImageURI(Uri.parse(beach?.imageURI))
         binding?.beachCard?.beachInformation?.cardDescription?.text = beach?.description
         binding?.beachCard?.beachInformation?.cardTitle?.text = beach?.name
@@ -40,19 +47,19 @@ class BeachConditionsActivity : AppCompatActivity() {
     private fun setAdapterForRecycler(conditions: Map<String, String>) {
         val recyclerAdapter = MapAdapter(conditions)
         binding?.recyclerViewConditions?.adapter = recyclerAdapter
-        binding?.recyclerViewConditions?.layoutManager = LinearLayoutManager(this)
+        binding?.recyclerViewConditions?.layoutManager = LinearLayoutManager(requireActivity())
     }
 
     private fun setObserverForViewModel() {
+        val beach = beachListViewModel.chosenBeach.value
         beach.let {
             beachConditionsViewModel.getConditions(beach?.lat, beach?.lng) { displayLoadingInfo() }
-                .observe(this) { conditions: Map<String, String> ->
+                .observe(requireActivity()) { conditions: Map<String, String> ->
                     configureAndDisplayMapAndDisableLoadingInformation(
                         conditions
                     )
                 }
         }
-
 
 
     }
