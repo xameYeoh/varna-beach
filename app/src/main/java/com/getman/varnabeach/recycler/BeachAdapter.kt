@@ -6,21 +6,24 @@ import androidx.recyclerview.widget.ListAdapter
 import com.getman.varnabeach.recycler.BeachViewHolder.Companion.create
 import com.getman.varnabeach.room.Beach
 
-class BeachAdapter : ListAdapter<Beach?, BeachViewHolder>(DIFF_CALLBACK) {
-    companion object {
-        private val DIFF_CALLBACK: DiffUtil.ItemCallback<Beach?> =
-            object : DiffUtil.ItemCallback<Beach?>() {
-                override fun areItemsTheSame(oldItem: Beach, newItem: Beach): Boolean {
-                    return oldItem.id == newItem.id
-                }
+class BeachAdapter(
+    private val onItemClicked: (Beach) -> Unit
+) : ListAdapter<Beach, BeachViewHolder>(DIFF_CALLBACK()) {
 
-                override fun areContentsTheSame(oldItem: Beach, newItem: Beach): Boolean {
-                    return oldItem == newItem
-                }
-            }
+    private class DIFF_CALLBACK : DiffUtil.ItemCallback<Beach>() {
+        override fun areItemsTheSame(oldItem: Beach, newItem: Beach): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Beach, newItem: Beach): Boolean {
+            return oldItem == newItem
+        }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeachViewHolder {
-        return create(parent)
+        return create(parent) {
+            onItemClicked(getItem(it))
+        }
     }
 
     override fun onBindViewHolder(holder: BeachViewHolder, position: Int) {

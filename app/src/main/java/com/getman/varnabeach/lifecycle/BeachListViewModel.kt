@@ -13,7 +13,7 @@ class BeachListViewModel @Inject constructor(
     repository: Repository
 ) : ViewModel() {
     val allBeaches: LiveData<List<Beach>> = repository.allBeaches
-    private lateinit var chosenBeachMutable: MutableLiveData<Beach>
+    private val chosenBeachMutable = MutableLiveData<Beach>()
     val chosenBeach: LiveData<Beach> get() = chosenBeachMutable
 
     fun chooseBeach(selectedBeach: Beach) {

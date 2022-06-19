@@ -27,7 +27,7 @@ public class UnitFormatTest {
         // given
         setMocksValuesEnglish();
 
-        BeachConditionsActivity.UnitFormat format = new BeachConditionsActivity.UnitFormat(resources);
+        BeachConditionsFragment.UnitFormat format = new BeachConditionsFragment.UnitFormat(resources);
         String temperature = "airTemperature";
         String height = "waveHeight";
         // when
@@ -49,7 +49,7 @@ public class UnitFormatTest {
         // given
         setMocksRussian();
 
-        BeachConditionsActivity.UnitFormat format = new BeachConditionsActivity.UnitFormat(resources);
+        BeachConditionsFragment.UnitFormat format = new BeachConditionsFragment.UnitFormat(resources);
         String temperature = "airTemperature";
         String height = "waveHeight";
         // when
@@ -71,7 +71,7 @@ public class UnitFormatTest {
         // given
         String camel = "camelCaseExample";
         // when
-        String normal = BeachConditionsActivity.UnitFormat.convertCamelCaseToNormal(camel);
+        String normal = BeachConditionsFragment.UnitFormat.convertCamelCaseToNormal(camel);
         // then
         assertEquals("Camel Case Example ", normal);
     }
