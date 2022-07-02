@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +13,6 @@ import com.getman.varnabeach.databinding.FragmentBeachDetailBinding
 import com.getman.varnabeach.lifecycle.BeachConditionsViewModel
 import com.getman.varnabeach.lifecycle.BeachListViewModel
 import com.getman.varnabeach.recycler.MapAdapter
-import com.getman.varnabeach.room.Beach
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,7 +35,7 @@ class BeachConditionsFragment : Fragment() {
     }
 
     private fun bindViewsToBeachInfo() {
-        val beach = beachListViewModel.chosenBeach.value
+        val beach = beachListViewModel.selectedBeach.value
         binding?.beachCard?.beachInformation?.cardImage?.setImageURI(Uri.parse(beach?.imageURI))
         binding?.beachCard?.beachInformation?.cardDescription?.text = beach?.description
         binding?.beachCard?.beachInformation?.cardTitle?.text = beach?.name
@@ -51,7 +48,7 @@ class BeachConditionsFragment : Fragment() {
     }
 
     private fun setObserverForViewModel() {
-        val beach = beachListViewModel.chosenBeach.value
+        val beach = beachListViewModel.selectedBeach.value
         beach.let {
             beachConditionsViewModel.getConditions(beach?.lat, beach?.lng) { displayLoadingInfo() }
                 .observe(requireActivity()) { conditions: Map<String, String> ->

@@ -1,6 +1,5 @@
 package com.getman.varnabeach
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,7 +26,7 @@ class BeachListFragment : Fragment() {
             layoutInflater
         )
         val adapter = BeachAdapter {
-            beachListViewModel.chooseBeach(it)
+            beachListViewModel.select(it)
 
             val action =
                 BeachListFragmentDirections.actionBeachListFragmentToBeachConditionsFragment()
