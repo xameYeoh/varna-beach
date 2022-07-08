@@ -13,6 +13,7 @@ import com.getman.varnabeach.databinding.FragmentBeachDetailBinding
 import com.getman.varnabeach.lifecycle.BeachConditionsViewModel
 import com.getman.varnabeach.lifecycle.BeachListViewModel
 import com.getman.varnabeach.recycler.MapAdapter
+import com.getman.varnabeach.room.Beach
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,31 +45,38 @@ class BeachConditionsFragment : Fragment() {
     private fun setAdapterForRecycler(conditions: Map<String, String>) {
         val recyclerAdapter = MapAdapter(conditions)
         binding?.recyclerViewConditions?.adapter = recyclerAdapter
-        binding?.recyclerViewConditions?.layoutManager = LinearLayoutManager(requireActivity())
+        binding?.recyclerViewConditions?.layoutManager = LinearLayoutManager(context)
     }
 
     private fun setObserverForViewModel() {
         val beach = beachListViewModel.selectedBeach.value
         beach.let {
-            beachConditionsViewModel.getConditions(beach?.lat, beach?.lng) { displayLoadingInfo() }
-                .observe(requireActivity()) { conditions: Map<String, String> ->
-                    configureAndDisplayMapAndDisableLoadingInformation(
-                        conditions
-                    )
-                }
+            beachConditionsViewModel.currentConditions.observe(requireActivity()) { conditions: Map<String, String> ->
+                configureAndDisplayMapAndDisableLoadingInformation(
+                    conditions
+                )
+            }
+            requestConditions(beach)
         }
+    }
 
-
+    private fun requestConditions(beach: Beach?) {
+        beachConditionsViewModel.requestConditions(
+            beach?.lat,
+            beach?.lng
+        ) { displayLoadingInfo() }
     }
 
     private fun displayLoadingInfo() {
+        // TODO: Hide recycler
         binding?.testView?.text = resources.getText(R.string.loading)
     }
 
     private fun configureAndDisplayMapAndDisableLoadingInformation(conditions: Map<String, String>) {
-        var conditions = conditions
-        conditions = makeMapReadable(conditions)
-        setAdapterForRecycler(conditions)
+        var mConditions = conditions
+        mConditions = makeMapReadable(mConditions)
+        setAdapterForRecycler(mConditions)
+        // TODO: Show recycler
         binding?.testView?.visibility = View.INVISIBLE
     }
 

@@ -24,8 +24,8 @@ public class CacheRequest extends Request<NetworkResponse> {
         if (cacheEntry == null) {
             cacheEntry = new Cache.Entry();
         }
-        final long cacheHitButRefreshed = 60 * 60 * 1000;
-        final long cacheExpired = 24 * 60 * 60 * 1000;
+        final long cacheHitButRefreshed = 24 * 60 * 60 * 1000;
+        final long cacheExpired = 3 * 24 * 60 * 60 * 1000;
         long now = System.currentTimeMillis();
         final long softExpire = now + cacheHitButRefreshed;
         final long ttl = now + cacheExpired;

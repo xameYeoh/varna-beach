@@ -11,26 +11,21 @@ import javax.inject.Inject
 class BeachConditionsViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
-    private var conditions: MutableLiveData<Map<String, String>>? = null
+    private var conditions: MutableLiveData<Map<String, String>> = MutableLiveData()
+    val currentConditions get(): LiveData<Map<String, String>> = conditions
 
-    fun getConditions(
+    fun requestConditions(
         lat: String?,
         lng: String?,
         listener: OnLoadingListener
-    ): LiveData<Map<String, String>> {
-        if (conditions == null) {
-            conditions = MutableLiveData()
+    ) {
+        if (lat != null && lng != null) {
             listener.onLoading()
-            requestConditions(lat ?: "", lng ?: "")
+            repository.requestNewConditions(lat, lng) { updateData() }
         }
-        return conditions!!
-    }
-
-    private fun requestConditions(lat: String, lng: String) {
-        repository.requestNewConditions(lat, lng) { updateData() }
     }
 
     private fun updateData() {
-        conditions!!.value = repository.getBeachConditions()
+        conditions.value = repository.currentBeachConditions
     }
 }

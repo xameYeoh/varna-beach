@@ -22,15 +22,12 @@ class Repository @Inject constructor(
 ) {
     val allBeaches: LiveData<List<Beach>> = beachDAO.allOrderByName
     private val beachConditions: MutableMap<String, String> = HashMap()
+    val currentBeachConditions get(): Map<String, String> = beachConditions
 
     companion object {
         private const val URL_GET = "https://api.stormglass.io/v2/weather/point"
         private const val PARAMS = "windSpeed,waveHeight,airTemperature,waterTemperature"
         private const val KEY = BuildConfig.STORMGLASS_KEY
-    }
-
-    fun getBeachConditions(): Map<String, String> {
-        return beachConditions
     }
 
     fun requestNewConditions(lat: String, lng: String, listener: OnChangeConditionListener) {
@@ -45,7 +42,7 @@ class Repository @Inject constructor(
             url,
             Response.Listener { response: NetworkResponse ->
                 try {
-                    putAverageValuesToMap(response)
+                    updateCurrentConditions(response)
                     listener.onChange()
                 } catch (je: JSONException) {
                     Log.d("JSON", je.toString())
@@ -62,9 +59,9 @@ class Repository @Inject constructor(
     }
 
     @Throws(JSONException::class)
-    private fun putAverageValuesToMap(response: NetworkResponse) {
+    private fun updateCurrentConditions(response: NetworkResponse) {
         val jsonResponse = JSONObject(String(response.data))
-        val currentHourConditions = getCurrentHourJsonObject(jsonResponse)
+        val currentHourConditions = getCurrentHourConditions(jsonResponse)
         val names = currentHourConditions!!.names()
         for (i in 0 until names.length()) {
             val key = names.getString(i)
@@ -86,7 +83,7 @@ class Repository @Inject constructor(
         return Math.floor(sum / names.length() * 100) / 100
     }
 
-    private fun getCurrentHourJsonObject(response: JSONObject): JSONObject? {
+    private fun getCurrentHourConditions(response: JSONObject): JSONObject? {
         var result: JSONObject? = null
         try {
             val hours = response.getJSONArray("hours")
