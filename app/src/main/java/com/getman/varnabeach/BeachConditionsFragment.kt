@@ -68,7 +68,7 @@ class BeachConditionsFragment : Fragment() {
     }
 
     private fun displayLoadingInfo() {
-        // TODO: Hide recycler
+        binding?.recyclerViewConditions?.visibility = View.INVISIBLE
         binding?.testView?.text = resources.getText(R.string.loading)
     }
 
@@ -76,7 +76,7 @@ class BeachConditionsFragment : Fragment() {
         var mConditions = conditions
         mConditions = makeMapReadable(mConditions)
         setAdapterForRecycler(mConditions)
-        // TODO: Show recycler
+        binding?.recyclerViewConditions?.visibility = View.VISIBLE
         binding?.testView?.visibility = View.INVISIBLE
     }
 
@@ -85,9 +85,8 @@ class BeachConditionsFragment : Fragment() {
         val readable: MutableMap<String, String> = HashMap()
         for (key in conditions.keys) {
             var value = conditions[key]
-            var keyMap = key
             value = value + " " + units.getUnitFor(key)
-            keyMap = UnitFormat.convertCamelCaseToNormal(key)
+            val keyMap = UnitFormat.convertCamelCaseToNormal(key)
             readable[keyMap] = value
         }
         return readable
