@@ -4,21 +4,24 @@
     <string name="asparuhovo">Asparuhovo</string>
     <string name="galata">Galata</string>
     <string name="golden_sands">Golden Sands</string>
-    <string name="asparuhovo_description">Beach in Asparuhovo</string>
-    <string name="galata_description">Beach in Galata</string>
-    <string name="golden_sands_description">Beach in Golden Sands</string>
+    <string name="asparuhovo_description">One of the most popular beaches for both tourists and locals. Here you can rent beach equipment - sunbeds, sun loungers, umbrellas. The beach is easily accessible for people with disabilities. Various festivals and beach sports competitions often take place here.</string>
+    <string name="galata_description">This place is in demand mainly among the local population, as to get there you need to climb 1500 steps. The southern part of the beach is more rocky and forms many natural small coves that attract visitors seeking solitude</string>
+    <string name="golden_sands_description">One of the most famous and largest beach resorts in Bulgaria, famous for its excellent family and active beach holidays. It owes its name to the legend that pirate treasures were buried on this coast, which eventually turned into golden sand that covered the entire coast along the resort. On the beach there are showers, changing cabins, toilets, paid beach equipment, a cafe, a rescue service, you can also use massage services.</string>
     <string name="central">Central</string>
-    <string name="central_description">Beach in Centre</string>
+    <string name="central_description">A popular place among beach lovers. The beach is sandy and clean, there are sun loungers near the shore, and a little further there are several cafes and supermarkets. On the Central Beach there are playgrounds, as well as a tennis court and a small children\'s pool.
+</string>
     <string name="speed_unit">m/s</string>
     <string name="distance_unit">m</string>
     <string name="temperature_unit">°C</string>
     <string name="loading">Loading…</string>
     <string name="burgas">Burgas beach</string>
-    <string name="burgas_description">Beach in burgas</string>
+    <string name="burgas_description">The beach is very clean, wide and spacious, with dark fine sand mixed with small light pebbles. The sea off the coast of Burgas is calm - this is facilitated by the location of the city in the depths of the Burgas Bay. There are no high waves here, the water is quite clear and bright. The entrance to the sea is long and uniform.
+</string>
     <string name="sozopol">Sozopol</string>
-    <string name="sozopol_description">Beach in Sozopol</string>
+    <string name="sozopol_description">The beach is clean, sandy and free. Its distinguishing feature is the presence of professional diving centers and schools that will help you discover the incredible underwater world. In addition to the flora and fauna of picturesque reservoirs, many historical artifacts and a flooded island can be observed in the local depths.
+</string>
     <string name="primorsko">Primorsko</string>
-    <string name="primorsko_description">Primorsko description</string>
+    <string name="primorsko_description">The beach is famous for its cozy bay with clear and warm water. The beach is located at the foot of the Strandzha mountain range, on a peninsula between Stomoplo and Devil\'s bays. For over 20 years, Primorsko has received the European Blue Flag quality award as a clean and safe beach.</string>
     <string name="sunny_beach">Sunny beach</string>
-    <string name="sunny_beach_description">Sunny beach</string>
+    <string name="sunny_beach_description">The best beaches in Sunny Beach are located along the first line of hotels. They are also the most comfortable with a highly developed service industry. The beaches on the outskirts of the bay are less crowded, but by no means less beautiful and clean. The quality of the sand, the well-groomed beaches in the resort are at a high level, for which they have repeatedly received an award - the blue flag of the EU.</string>
 </resources>
