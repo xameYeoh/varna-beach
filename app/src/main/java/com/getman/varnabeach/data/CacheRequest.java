@@ -46,7 +46,7 @@ public class CacheRequest extends Request<NetworkResponse> {
     }
 
     @Override
-    protected void deliverResponse(NetworkResponse response) {
+    public void deliverResponse(NetworkResponse response) {
         mListener.onResponse(response);
     }
 

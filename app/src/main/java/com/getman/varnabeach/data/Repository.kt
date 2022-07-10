@@ -15,7 +15,7 @@ import java.time.Instant
 import java.time.temporal.ChronoUnit
 import javax.inject.Inject
 
-class Repository @Inject constructor(
+open class Repository @Inject constructor(
     beachDAO: BeachDAO,
     private val helper: VolleyHelper,
     private val errorHandler: ErrorHandler
