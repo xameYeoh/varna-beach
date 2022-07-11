@@ -41,11 +41,11 @@ public abstract class BeachDatabase extends RoomDatabase {
 
     public abstract BeachDAO beachDao();
 
-    private static class Callback extends RoomDatabase.Callback {
+    public static class Callback extends RoomDatabase.Callback {
 
         private final Context context;
 
-        private Callback(Context context) {
+        public Callback(Context context) {
             this.context = context;
         }
 
@@ -64,7 +64,7 @@ public abstract class BeachDatabase extends RoomDatabase {
             String sunnyBeachImagePath = "android.resource://" + packageName + "/" + R.drawable.sunny_beach;
 
             databaseWriteExecutor.execute(() -> {
-                BeachDAO dao = INSTANCE.beachDao();
+                BeachDAO dao = getInstance(context).beachDao();
                 dao.deleteAll();
 
                 dao.insertAll(

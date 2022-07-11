@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/beachListFragment">
+
+    <fragment
+        android:id="@+id/beachConditionsFragment"
+        android:name="com.getman.varnabeach.BeachConditionsFragment"
+        android:label="fragment_beach_detail"
+        tools:layout="@layout/fragment_beach_detail" />
+    <fragment
+        android:id="@+id/beachListFragment"
+        android:name="com.getman.varnabeach.BeachListFragment"
+        android:label="BeachListFragment" >
+        <action
+            android:id="@+id/action_beachListFragment_to_beachConditionsFragment"
+            app:destination="@id/beachConditionsFragment"
+            app:enterAnim="@anim/to_left_enter"
+            app:exitAnim="@anim/to_left_exit"
+            app:popEnterAnim="@anim/to_right_enter"
+            app:popExitAnim="@anim/to_right_exit" />
+    </fragment>
+</navigation>

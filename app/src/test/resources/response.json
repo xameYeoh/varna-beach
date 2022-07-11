@@ -1,0 +1,619 @@
+{
+  "hours": [
+    {
+      "airTemperature": {
+        "dwd": 22.96,
+        "noaa": 25.06,
+        "sg": 22.96
+      },
+      "time": "2022-06-21T14:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.66,
+        "noaa": 22.36,
+        "sg": 23.66
+      },
+      "waveHeight": {
+        "dwd": 0.38,
+        "icon": 0.34,
+        "meteo": 0.46,
+        "sg": 0.46
+      },
+      "windSpeed": {
+        "icon": 2.77,
+        "noaa": 4.63,
+        "sg": 2.77
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 23.12,
+        "noaa": 25.61,
+        "sg": 23.12
+      },
+      "time": "2022-06-21T15:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.67,
+        "noaa": 22.35,
+        "sg": 23.67
+      },
+      "waveHeight": {
+        "dwd": 0.41,
+        "icon": 0.37,
+        "meteo": 0.48,
+        "sg": 0.48
+      },
+      "windSpeed": {
+        "icon": 2.24,
+        "noaa": 3.84,
+        "sg": 2.24
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.98,
+        "noaa": 24.9,
+        "sg": 22.98
+      },
+      "time": "2022-06-21T16:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.69,
+        "noaa": 22.14,
+        "sg": 23.69
+      },
+      "waveHeight": {
+        "dwd": 0.46,
+        "icon": 0.39,
+        "meteo": 0.46,
+        "sg": 0.46
+      },
+      "windSpeed": {
+        "icon": 1.77,
+        "noaa": 4.43,
+        "sg": 1.77
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.89,
+        "noaa": 24.19,
+        "sg": 22.89
+      },
+      "time": "2022-06-21T17:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.71,
+        "noaa": 21.94,
+        "sg": 23.71
+      },
+      "waveHeight": {
+        "dwd": 0.46,
+        "icon": 0.4,
+        "meteo": 0.45,
+        "sg": 0.45
+      },
+      "windSpeed": {
+        "icon": 1.31,
+        "noaa": 5.01,
+        "sg": 1.31
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.65,
+        "noaa": 23.49,
+        "sg": 22.65
+      },
+      "time": "2022-06-21T18:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.72,
+        "noaa": 21.73,
+        "sg": 23.72
+      },
+      "waveHeight": {
+        "dwd": 0.45,
+        "icon": 0.42,
+        "meteo": 0.43,
+        "sg": 0.43
+      },
+      "windSpeed": {
+        "icon": 0.84,
+        "noaa": 5.6,
+        "sg": 0.84
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.4,
+        "noaa": 23.49,
+        "sg": 22.4
+      },
+      "time": "2022-06-21T19:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.74,
+        "noaa": 21.69,
+        "sg": 23.74
+      },
+      "waveHeight": {
+        "dwd": 0.43,
+        "icon": 0.41,
+        "meteo": 0.43,
+        "sg": 0.43
+      },
+      "windSpeed": {
+        "icon": 1.36,
+        "noaa": 5.1,
+        "sg": 1.36
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.3,
+        "noaa": 23.5,
+        "sg": 22.3
+      },
+      "time": "2022-06-21T20:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.76,
+        "noaa": 21.66,
+        "sg": 23.76
+      },
+      "waveHeight": {
+        "dwd": 0.41,
+        "icon": 0.39,
+        "meteo": 0.44,
+        "sg": 0.44
+      },
+      "windSpeed": {
+        "icon": 1.89,
+        "noaa": 4.6,
+        "sg": 1.89
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 24.76,
+        "noaa": 23.51,
+        "sg": 24.76
+      },
+      "time": "2022-06-21T21:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.77,
+        "noaa": 21.62,
+        "sg": 23.77
+      },
+      "waveHeight": {
+        "dwd": 0.4,
+        "icon": 0.38,
+        "meteo": 0.44,
+        "sg": 0.44
+      },
+      "windSpeed": {
+        "icon": 2.41,
+        "noaa": 4.1,
+        "sg": 2.41
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 26.08,
+        "noaa": 23.09,
+        "sg": 26.08
+      },
+      "time": "2022-06-21T22:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.79,
+        "noaa": 21.71,
+        "sg": 23.79
+      },
+      "waveHeight": {
+        "dwd": 0.38,
+        "icon": 0.37,
+        "meteo": 0.43,
+        "sg": 0.43
+      },
+      "windSpeed": {
+        "icon": 3.23,
+        "noaa": 4.84,
+        "sg": 3.23
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 25.98,
+        "noaa": 22.67,
+        "sg": 25.98
+      },
+      "time": "2022-06-21T23:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.8,
+        "noaa": 21.81,
+        "sg": 23.8
+      },
+      "waveHeight": {
+        "dwd": 0.37,
+        "icon": 0.36,
+        "meteo": 0.42,
+        "sg": 0.42
+      },
+      "windSpeed": {
+        "icon": 4.06,
+        "noaa": 5.57,
+        "sg": 4.06
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 24.65,
+        "noaa": 22.25,
+        "sg": 24.65
+      },
+      "time": "2022-06-22T00:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.54,
+        "noaa": 21.9,
+        "sg": 23.54
+      },
+      "waveHeight": {
+        "dwd": 0.35,
+        "icon": 0.35,
+        "meteo": 0.41,
+        "sg": 0.41
+      },
+      "windSpeed": {
+        "icon": 4.88,
+        "noaa": 6.31,
+        "sg": 4.88
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 23.17,
+        "noaa": 21.79,
+        "sg": 23.17
+      },
+      "time": "2022-06-22T01:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.58,
+        "noaa": 21.9,
+        "sg": 23.58
+      },
+      "waveHeight": {
+        "dwd": 0.3,
+        "icon": 0.34,
+        "meteo": 0.39,
+        "sg": 0.39
+      },
+      "windSpeed": {
+        "icon": 4.26,
+        "noaa": 5.91,
+        "sg": 4.26
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 21.93,
+        "noaa": 21.32,
+        "sg": 21.93
+      },
+      "time": "2022-06-22T02:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.63,
+        "noaa": 21.89,
+        "sg": 23.63
+      },
+      "waveHeight": {
+        "dwd": 0.26,
+        "icon": 0.34,
+        "meteo": 0.36,
+        "sg": 0.36
+      },
+      "windSpeed": {
+        "icon": 3.63,
+        "noaa": 5.5,
+        "sg": 3.63
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 21.31,
+        "noaa": 20.85,
+        "sg": 21.31
+      },
+      "time": "2022-06-22T03:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.68,
+        "noaa": 21.88,
+        "sg": 23.68
+      },
+      "waveHeight": {
+        "dwd": 0.22,
+        "icon": 0.33,
+        "meteo": 0.34,
+        "sg": 0.34
+      },
+      "windSpeed": {
+        "icon": 3.01,
+        "noaa": 5.1,
+        "sg": 3.01
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 21.06,
+        "noaa": 20.81,
+        "sg": 21.06
+      },
+      "time": "2022-06-22T04:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.72,
+        "noaa": 21.96,
+        "sg": 23.72
+      },
+      "waveHeight": {
+        "dwd": 0.21,
+        "icon": 0.34,
+        "meteo": 0.34,
+        "sg": 0.34
+      },
+      "windSpeed": {
+        "icon": 2.69,
+        "noaa": 4.81,
+        "sg": 2.69
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 21.21,
+        "noaa": 20.77,
+        "sg": 21.21
+      },
+      "time": "2022-06-22T05:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.77,
+        "noaa": 22.04,
+        "sg": 23.77
+      },
+      "waveHeight": {
+        "dwd": 0.21,
+        "icon": 0.34,
+        "meteo": 0.35,
+        "sg": 0.35
+      },
+      "windSpeed": {
+        "icon": 2.38,
+        "noaa": 4.53,
+        "sg": 2.38
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 21.63,
+        "noaa": 20.73,
+        "sg": 21.63
+      },
+      "time": "2022-06-22T06:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.81,
+        "noaa": 22.12,
+        "sg": 23.81
+      },
+      "waveHeight": {
+        "dwd": 0.21,
+        "icon": 0.35,
+        "meteo": 0.35,
+        "sg": 0.35
+      },
+      "windSpeed": {
+        "icon": 2.06,
+        "noaa": 4.24,
+        "sg": 2.06
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.19,
+        "noaa": 20.99,
+        "sg": 22.19
+      },
+      "time": "2022-06-22T07:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.84,
+        "noaa": 22.38,
+        "sg": 23.84
+      },
+      "waveHeight": {
+        "dwd": 0.21,
+        "icon": 0.35,
+        "meteo": 0.36,
+        "sg": 0.36
+      },
+      "windSpeed": {
+        "icon": 1.74,
+        "noaa": 4.3,
+        "sg": 1.74
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.55,
+        "noaa": 21.25,
+        "sg": 22.55
+      },
+      "time": "2022-06-22T08:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.88,
+        "noaa": 22.63,
+        "sg": 23.88
+      },
+      "waveHeight": {
+        "dwd": 0.21,
+        "icon": 0.34,
+        "meteo": 0.37,
+        "sg": 0.37
+      },
+      "windSpeed": {
+        "icon": 1.43,
+        "noaa": 4.37,
+        "sg": 1.43
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.21,
+        "noaa": 21.51,
+        "sg": 22.21
+      },
+      "time": "2022-06-22T09:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.91,
+        "noaa": 22.88,
+        "sg": 23.91
+      },
+      "waveHeight": {
+        "dwd": 0.2,
+        "icon": 0.34,
+        "meteo": 0.38,
+        "sg": 0.38
+      },
+      "windSpeed": {
+        "icon": 1.11,
+        "noaa": 4.43,
+        "sg": 1.11
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.19,
+        "noaa": 21.58,
+        "sg": 22.19
+      },
+      "time": "2022-06-22T10:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.95,
+        "noaa": 22.88,
+        "sg": 23.95
+      },
+      "waveHeight": {
+        "dwd": 0.2,
+        "icon": 0.33,
+        "meteo": 0.39,
+        "sg": 0.39
+      },
+      "windSpeed": {
+        "icon": 1.58,
+        "noaa": 5.21,
+        "sg": 1.58
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 22.34,
+        "noaa": 21.65,
+        "sg": 22.34
+      },
+      "time": "2022-06-22T11:00:00+00:00",
+      "waterTemperature": {
+        "meto": 23.98,
+        "noaa": 22.89,
+        "sg": 23.98
+      },
+      "waveHeight": {
+        "dwd": 0.2,
+        "icon": 0.33,
+        "meteo": 0.39,
+        "sg": 0.39
+      },
+      "windSpeed": {
+        "icon": 2.05,
+        "noaa": 5.98,
+        "sg": 2.05
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 21.58,
+        "noaa": 21.72,
+        "sg": 21.58
+      },
+      "time": "2022-06-22T12:00:00+00:00",
+      "waterTemperature": {
+        "meto": 24.01,
+        "noaa": 22.89,
+        "sg": 24.01
+      },
+      "waveHeight": {
+        "dwd": 0.24,
+        "icon": 0.32,
+        "meteo": 0.4,
+        "sg": 0.4
+      },
+      "windSpeed": {
+        "icon": 2.52,
+        "noaa": 6.76,
+        "sg": 2.52
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 21.79,
+        "noaa": 21.87,
+        "sg": 21.79
+      },
+      "time": "2022-06-22T13:00:00+00:00",
+      "waterTemperature": {
+        "meto": 24.03,
+        "noaa": 22.76,
+        "sg": 24.03
+      },
+      "waveHeight": {
+        "dwd": 0.32,
+        "icon": 0.31,
+        "meteo": 0.42,
+        "sg": 0.42
+      },
+      "windSpeed": {
+        "icon": 2.4,
+        "noaa": 6.54,
+        "sg": 2.4
+      }
+    },
+    {
+      "airTemperature": {
+        "dwd": 21.97,
+        "noaa": 22.01,
+        "sg": 21.97
+      },
+      "time": "2022-06-22T14:00:00+00:00",
+      "waterTemperature": {
+        "meto": 24.06,
+        "noaa": 22.63,
+        "sg": 24.06
+      },
+      "waveHeight": {
+        "dwd": 0.34,
+        "icon": 0.31,
+        "meteo": 0.43,
+        "sg": 0.43
+      },
+      "windSpeed": {
+        "icon": 2.28,
+        "noaa": 6.31,
+        "sg": 2.28
+      }
+    }
+  ],
+  "meta": {
+    "cost": 1,
+    "dailyQuota": 50,
+    "end": "2022-06-22 14:34",
+    "lat": 43.199786,
+    "lng": 27.923486,
+    "params": [
+      "windSpeed",
+      "waveHeight",
+      "airTemperature",
+      "waterTemperature"
+    ],
+    "requestCount": 4,
+    "start": "2022-06-21 14:00"
+  }
+}
