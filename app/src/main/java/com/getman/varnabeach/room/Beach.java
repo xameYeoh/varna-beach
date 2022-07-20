@@ -2,12 +2,18 @@ package com.getman.varnabeach.room;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
+@Entity (
+        indices = {
+                @Index(value = {"name", "description"}, unique = true),
+                @Index(value = {"name", "description", "lat", "lng"}, unique = true)
+        }
+)
 public class Beach implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int id;
